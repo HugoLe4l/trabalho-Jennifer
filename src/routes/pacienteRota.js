@@ -2,7 +2,6 @@ import { Router } from 'express'
 import { db } from '../config/conexao.js';
 import { createPaciente, updatePaciente, vericaExisteCPF } from '../models/pacientesModal.js';
 
-import Paciente from '../classes/Paciente.js';
 const router = Router();
 
 //Cadastra novo paciente caso o cpf não esteja cadastrado
