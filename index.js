@@ -16,7 +16,7 @@ app.use('/paciente', pacienteRota)
 
 
 
-
+//aaaaaaaaaaaaaaaaaaaaaaaaa atualiza aqui
 
 
 
