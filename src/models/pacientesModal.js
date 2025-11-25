@@ -17,6 +17,12 @@ export async function updatePaciente(id, data){
     return update
 }
 
+
+export async function deletePaciente(id){
+    const result = await db.run('DELETE FROM pacientes WHERE id_Paciente = ?', [id])
+    return result
+}
+
 export async function vericaExisteCPF(cpf) {    
     const VerificaExisteCPF = await db.all(`SELECT * from pacientes WHERE cpf = ?`, [cpf])    
     if (VerificaExisteCPF.length > 0){

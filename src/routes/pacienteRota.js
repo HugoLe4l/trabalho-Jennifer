@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { db } from '../config/conexao.js';
-import { createPaciente, updatePaciente, vericaExisteCPF } from '../models/pacientesModal.js';
+import { createPaciente, updatePaciente, deletePaciente, vericaExisteCPF } from '../models/pacientesModal.js';
 
 const router = Router();
 
@@ -82,6 +82,26 @@ router.put('/atualizar/:id', async (req, resp) => {
         resp.status(500).json({ success: false, error: error, mensagem: "Erro ao atualizar o paciente." })
     }
 
+})
+
+
+router.delete('/deletar/:id', async (req, resp) => {
+    const { id } = req.params
+    
+    try {
+        const busca = await db.all('SELECT * FROM pacientes WHERE id_Paciente = ?', [id])
+
+        if(busca.length < 1){
+            return resp.status(404).json({ success: false, mensagem: "Paciente não encontrado." })
+        }
+
+        await deletePaciente(id)
+
+        resp.status(200).json({ success: true, mensagem: "Paciente deletado com sucesso." })
+
+    } catch(error) {
+        resp.status(500).json({ success: false, error: error, mensagem: "Erro ao tentar deletar o paciente." })
+    }
 })
 
 export default router
