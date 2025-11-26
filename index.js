@@ -1,11 +1,11 @@
 import express from 'express'
-import { TabelaPaciente } from './src/config/databaseSetup.js';
+import { TabelaPaciente, TabelaConsultas } from './src/config/databaseSetup.js';
 
 //Importando as rotas
 import pacienteRota from "./src/routes/pacienteRota.js"
 
 TabelaPaciente()
-
+TabelaConsultas()
 const app = express();
 
 

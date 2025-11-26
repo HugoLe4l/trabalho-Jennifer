@@ -50,7 +50,7 @@ router.get('/dados', async (req, resp) => {
     }
 })
 
-
+//Atualiza as informações do paciente
 router.put('/atualizar/:id', async (req, resp) => {
     const { id } = req.params
     const { DadosPaciente } = req.body
@@ -84,7 +84,7 @@ router.put('/atualizar/:id', async (req, resp) => {
 
 })
 
-
+//Deleta as infos do paciente
 router.delete('/deletar/:id', async (req, resp) => {
     const { id } = req.params
     

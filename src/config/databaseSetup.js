@@ -14,3 +14,15 @@ export async function TabelaPaciente() {
         num_casa TEXT NOT NULL)
         `);
 }
+
+export async function TabelaConsultas() {
+  db.exec(`
+    CREATE TABLE IF NOT EXISTS consultas (
+      id_Consulta INTEGER PRIMARY KEY AUTOINCREMENT,
+      paciente_id INTEGER NOT NULL,
+      data DATETIME,
+      especialidade TEXT NOT NULL,
+      FOREIGN KEY(paciente_id) references pacientes(id_Paciente)
+    )
+  `);
+}
