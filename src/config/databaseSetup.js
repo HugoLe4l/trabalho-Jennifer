@@ -20,7 +20,7 @@ export async function TabelaConsultas() {
     CREATE TABLE IF NOT EXISTS consultas (
       id_Consulta INTEGER PRIMARY KEY AUTOINCREMENT,
       paciente_id INTEGER NOT NULL,
-      data DATETIME,
+      data DATETIME DEFAULT CURRENT_TIMESTAMP,
       especialidade TEXT NOT NULL,
       FOREIGN KEY(paciente_id) references pacientes(id_Paciente)
     )
